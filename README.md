@@ -3,7 +3,7 @@
 > Prevents tasks from beeing passed as command line argument.
 
 Grunt files tend to have a big amount of multi tasks and their configuration objects.
-**This module allows you to prevent tasks and multi tasks beeing invoked by a command line argument directly.
+**This module allows you to prevent tasks and multi tasks beeing invoked by a command line argument directly.**
 
 This means you no longer need to be confident that such a (multi) task is not called, but you can actively prevent this.
 
@@ -25,7 +25,9 @@ require('grunt-assert-command-line-tasks')(grunt, ['list', 'of', 'protected', 't
 #### Example
 The following example is a simple build cycle to build, test and deploy .Net assemblies.
 
-Imagine what happens if one calls "grunt msbuild" or "grunt copy": nothing but errors one has to understand to use the build script in an appropriate way.
+Even if you register tasks (see end of the example code) that make up your build cycle, you can't be sure no one tries to call the multi tasks directly.
+
+Imagine what happens if one calls "grunt msbuild" or "grunt copy": nothing but errors, you might be blamed for ;), or even worse (imagine a complexer build script that will initiate SCM activities or publish the binaries to a public location) the code and/or resulting binaries might end up in nothing but trouble.
 
 ```javascript
 //gruntfile.js
