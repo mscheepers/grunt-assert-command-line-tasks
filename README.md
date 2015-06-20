@@ -16,7 +16,7 @@ If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out th
 npm install grunt-assert-command-line-tasks --save-dev
 ```
 
-Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
+Once the plugin has been installed, it may be called inside your Gruntfile with this line of JavaScript:
 
 ```javascript
 require('grunt-assert-command-line-tasks')(grunt, ['list', 'of', 'protected', 'tasks']);
@@ -27,7 +27,7 @@ The following example is a simple build cycle to build, test and deploy .Net ass
 
 Even if you register tasks (see end of the example code) that make up your build cycle, you can't be sure no one tries to call the multi tasks directly.
 
-Imagine what happens if one calls "grunt msbuild" or "grunt copy": nothing but errors, you might be blamed for ;), or even worse (imagine a complexer build script that will initiate SCM activities or publish the binaries to a public location) the code and/or resulting binaries might end up in nothing but trouble.
+Imagine what happens if one calls "grunt msbuild" or "grunt copy": nothing but errors, you might be blamed for ;), or even worse (imagine a complexer build script that will initiate SCM activities or publish the binaries to a public repository) the code and/or resulting binaries might end up in nothing but trouble.
 
 ```javascript
 //gruntfile.js
