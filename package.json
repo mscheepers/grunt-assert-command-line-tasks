@@ -1,0 +1,22 @@
+{
+    "name": "grunt-assert-command-line-tasks",
+    "version": "1.0.0",
+    "description": "Provides the ability to prevent tasks from beeing passed as command line argument.",
+    "main": "lib/grunt-assert-command-line-tasks.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": ["assert", "validate", "parse", "commandline", "command", "line",
+                 "task", "tasks", "parameter", "parameters", "argument", "arguments", "prevent"],
+    "author": "M.Scheepers <mscheepers@tool-links.de>",
+    "license": "MIT",
+    "homepage": "https://github.com/mscheepers/grunt-assert-command-line-tasks",
+    "bugs": "https://github.com/mscheepers/grunt-assert-command-line-tasks/issues",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mscheepers/grunt-assert-command-line-tasks.git"
+    }
+    , "engines": {
+        "node": ">= 0.8.0"
+    }
+}
