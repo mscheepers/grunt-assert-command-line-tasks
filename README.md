@@ -36,12 +36,15 @@ module.exports = function(grunt) {
     'use strict';
     
     // prevent the multi tasks from beeing invoked directly
-    require('grunt-assert-command-line-tasks')(grunt, ['msbuild', 'mstest', 'copy', 'clean']);
+    var protectedTasks = ['msbuild', 'mstest', 'copy', 'clean'];
+    require('grunt-assert-command-line-tasks')(grunt, protectedTasks);
     
     grunt.initConfig({
         clean: {
             dist: ['path/to/dist/folder'],
-            test: ['path/to/unit/test/result/files', 'path/to/integration/test/result/files']
+            test: [
+                'path/to/unit/test/result/files',
+                'path/to/integration/test/result/files']
         }
         msbuild: {
 			bin: {
@@ -90,11 +93,13 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-msbuild');
 	grunt.loadNpmTasks('grunt-mstest');
 	
-    // register your own tasks that are aware about the dependencies and the relation of the configured multi tasks
+    // register your own tasks that are aware about the dependencies
+    // and the relation of the configured multi tasks
     grunt.registerTask('prepare', ['clean', 'msbuild:clean']);
     grunt.registerTask('compile', ['prepare', 'msbuild:bin']);
     grunt.registerTask('test', ['compile', 'mstest:unittest']);
-    grunt.registerTask('deploy', ['test', 'mstest:integrationtest', 'copy:bin', 'msbuild:doc', 'copy:doc']);
+    grunt.registerTask('deploy', ['test', 'mstest:integrationtest',
+        'copy:bin', 'msbuild:doc', 'copy:doc']);
     
 }
 ```
